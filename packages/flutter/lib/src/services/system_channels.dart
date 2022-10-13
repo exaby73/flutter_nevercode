@@ -269,6 +269,18 @@ class SystemChannels {
       JSONMessageCodec(),
   );
 
+  /// A JSON [MethodChannel] for keyboard.
+  ///
+  /// The following outgoing methods are defined for this channel (invoked using
+  /// [OptionalMethodChannel.invokeMethod]):
+  ///
+  ///  * `HardwareKeyboard.getKeyboardState`: Obtains the keyboard state from the
+  ///    engine.
+  static const MethodChannel keyboard = MethodChannel(
+    'flutter/keyboard',
+    JSONMethodCodec(),
+  );
+
   /// A string [BasicMessageChannel] for lifecycle events.
   ///
   /// Valid messages are string representations of the values of the

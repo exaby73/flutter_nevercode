@@ -5,6 +5,7 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 
 import 'binding.dart';
 import 'raw_keyboard.dart';
@@ -490,6 +491,24 @@ class HardwareKeyboard {
     } else {
       _handlers.remove(handler);
     }
+  }
+
+  Future<Map<PhysicalKeyboardKey, LogicalKeyboardKey>> getKeyboardState() async {
+    final Map<String, Object?>? keyboardState = await SystemChannels.keyboard.invokeMethod<Map<String, Object?>>(
+      'getKeyboardState',
+    );
+    final Map<PhysicalKeyboardKey, LogicalKeyboardKey> pressedState = <PhysicalKeyboardKey, LogicalKeyboardKey>{};
+    if (keyboardState != null) {
+      for (final String key in keyboardState.keys) {
+        final Object? value = keyboardState[key];
+        if (value is int) {
+          final PhysicalKeyboardKey physicalKey = PhysicalKeyboardKey(int.parse(key));
+          final LogicalKeyboardKey logicalKey = LogicalKeyboardKey(value);
+          pressedState[physicalKey] = logicalKey;
+        }
+      }
+    }
+    return pressedState;
   }
 
   bool _dispatchKeyEvent(KeyEvent event) {
