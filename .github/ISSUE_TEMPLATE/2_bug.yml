@@ -1,0 +1,98 @@
+name: I have a problem with my Flutter application.
+description: You are writing an application with Flutter but the application is crashing
+  or throws an exception, a widget is buggy, or something looks wrong.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for using Flutter
+
+        If you are looking for support, please check out our documentation
+        or consider asking a question on Stack Overflow:
+
+          - https://flutter.dev/
+          - https://api.flutter.dev/
+          - https://stackoverflow.com/questions/tagged/flutter?sort=frequent
+
+        If you have found a bug or if our documentation doesn't have an answer
+        to what you're looking for, then fill out the template below. Please read
+        our guide to filing a bug first: https://flutter.dev/docs/resources/bug-reports
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue for this?
+      description: Please search to see if an issue already exists for the bug you encountered.
+      options:
+      - label: I have read https://flutter.dev/docs/resources/bug-reports
+        required: true
+      - label: I have searched the existing issues
+        required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: Please tell us exactly how to reproduce the problem you are running into.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Code sample
+      description: |
+        Please create a minimal reproducible sample that shows the problem
+        and attach it below between the lines with the backticks.
+
+        To create it you can use `flutter create bug` command and update the `main.dart` file.
+
+        Alternatively, you can use https://dartpad.dev/
+        which is capable of creating and running small Flutter apps.
+
+        Without this we will unlikely be able to progress on the issue, and because of that
+        we regretfully will have to close it.
+      value: |
+        <details>
+        <summary>Code sample</summary>
+
+        ```dart
+
+        <!-- Paste your code here -->
+
+        ```
+
+        </details>
+  - type: textarea
+    attributes:
+      label: Logs
+      description: |
+        Include the full logs of the commands you are running between the lines
+        with the backticks below. If you are running any "flutter" commands,
+        please include the output of running them with "--verbose"; for example,
+        the output of running "flutter --verbose create foo".
+      value: |
+        <details>
+        <summary>Logs</summary>
+
+        ```console
+
+        <!-- Paste your logs here -->
+
+        ```
+
+        </details>
+  - type: textarea
+    attributes:
+      label: Flutter Doctor output
+      description: |
+        Include the entire logs of running `flutter doctor -v`
+      value: |
+        <details>
+        <summary>Doctor output</summary>
+
+        ```console
+
+        <!-- Paste your output here -->
+
+        ```
+
+        </details>
